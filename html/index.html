@@ -82,7 +82,7 @@
              <dt>TCP</dt><dd>tcpsourceport, tcpdestinationport, tcpflags</dd>
              <dt>UDP</dt><dd>udpsourceport, udpdestinationport</dd>
           </dl>
-          <p>Tunneling can cause fields to appear multiple times in the packet. Fabric View adds a suffix to the flow key to indicate depth in the protocol stack, for example, a VxLAN encapsulated IP packet would have the following attributes, macsource, ipsource, macsource.1, ipsource.1, etc. Fields with a .1 suffix are the second occurence of the field in the packet and represent the inner (tenant) addresses.</p>
+          <p>Tunneling can cause fields to appear multiple times in the packet. sFlow-RT adds a suffix to the flow key to indicate depth in the protocol stack, for example, a VxLAN encapsulated IP packet would have the following attributes, macsource, ipsource, macsource.1, ipsource.1, etc. Fields with a .1 suffix are the second occurence of the field in the packet and represent the inner (tenant) addresses.</p>
           <p>Functions of the form &lt;funcname&gt;:&lt;arg1&gt;:&ltarg2&gt;... can be applied used to define a flowkey or in a filter:</p>
           <dl>
              <dt>group:&lt;flowkey&gt;:&lt;fv&gt;</dt><dd>Applies the configured <i>IP Address Groups</i> to a flow key and returns the group name, e.g. group:ipsource:fv or group:ipdestination:fv</dd>
