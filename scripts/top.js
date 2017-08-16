@@ -33,6 +33,7 @@ var aggMode  = getSystemProperty('top-flows.aggMode')  || 'max';
 var maxFlows = getSystemProperty('top-flows.maxFlows') || 20;
 var minValue = getSystemProperty('top-flows.minValue') || 0.01;
 var agents   = getSystemProperty('top-flows.agents')   || 'ALL';
+var t        = getSystemProperty('top-flows.t')        || 2;
  
 var shortcuts = storeGet('shortcuts') || defaultShortcuts;
 
@@ -60,7 +61,7 @@ function flowSpecName(keys,value,filter) {
     // try to create flow
     var name = 'top_flows_' + specID;
     try {
-      setFlow(name,{keys:keysStr, value:valueStr, filter: filterStr.length > 0 ? filterStr : null, t:2, n:10, fs:SEP});
+      setFlow(name,{keys:keysStr, value:valueStr, filter: filterStr.length > 0 ? filterStr : null, t:t, n:10, fs:SEP});
       entry = {name:name};
       userFlows[key] = entry;
       specID++;
