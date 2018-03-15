@@ -86,8 +86,7 @@ function deleteUserFlows(now) {
   }
 }
 
-setIntervalHandler(function() {
-  var now = (new Date()).getTime();
+setIntervalHandler(function(now) {
   deleteUserFlows(now);
 },10);
 
