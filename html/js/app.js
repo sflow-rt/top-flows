@@ -425,8 +425,6 @@ $(function() {
   });
   $('#shortcutsset').button({icons:{primary:'ui-icon-arrowstop-1-n'},text:false}).click(function() {$('#shortcutsfile').click();});
 
-  $(document).ready(function() {
-    initializeShortcutsTable();
-    emptyTopFlows();
-  });
+  initializeShortcutsTable();
+  emptyTopFlows();
 });
