@@ -8,5 +8,8 @@ http://blog.sflow.com/2015/09/real-time-analytics-and-control.html
 2. Run command: `sflow-rt/get-app.sh sflow-rt top-flows`
 3. Restart sFlow-RT
 
+Alternatively, use the Docker image:
+https://hub.docker.com/r/sflow/top-flows/
+
 For more information, visit:
-http://www.sFlow-RT.com
+https://sFlow-RT.com
