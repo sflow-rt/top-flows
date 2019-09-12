@@ -53,12 +53,12 @@ $(function() {
   }
 
   function getState(key, defVal) {
-    return window.sessionStorage.getItem(key) || state[key] || defVal;
+    return window.sessionStorage.getItem('top_flows_'+key) || state[key] || defVal;
   }
 
   function setState(key, val, showQuery) {
     state[key] = val;
-    window.sessionStorage.setItem(key, val);
+    window.sessionStorage.setItem('top_flows_'+key, val);
     if(showQuery) {
       var query = createQuery(state);
       window.history.replaceState({},'',query ? '?' + query : './');
@@ -257,7 +257,7 @@ $(function() {
     if(e.data && e.data.query && e.data.values) {
       var col = $(this).parent().children().index($(this));
       var row = $(this).parent().parent().children().index($(this).parent());
-      var key = e.data.query.keys.split(',')[col];
+      var key = e.data.query.keys.match(/(\\.|[^,])+/g)[col];
       var val = e.data.values[row].key.split(SEP)[col];
       addFilter(key,val,e.data.query.filter);
     }
@@ -272,7 +272,7 @@ $(function() {
     table += '<table class="stripe">';
     table += '<thead>';
     if(query.keys && query.value) {
-      var headers = query.keys.split(',');
+      var headers = query.keys.match(/(\\.|[^,])+/g);
       for(i = 0; i < headers.length; i++) {
         table += '<th>' + headers[i] + '</th>';
       }
